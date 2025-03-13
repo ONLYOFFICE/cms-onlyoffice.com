@@ -1,0 +1,21 @@
+{
+    "cmsUrl": "cms_url",
+    "awsUrl": "cms_aws_url",
+    "jwtSecret": "cms_jwt",
+    "urlConfig": "cms_cdn",
+    "dbconfig": {
+        "host": "cms_db_host",
+        "port": "3306",
+        "database": "cms_db_name",
+        "user": "cms_db_user",
+        "password": "cms_db_pass",
+        "ssl": false
+    },
+    "aws": {
+        "access_key_id": "cms_access_key",
+        "access_secret": "cms_secret_key",
+        "region": "cms_aws_region",
+        "bucket": "cms_bucket",
+        "cdn": "cms_cdn"
+    }
+}
