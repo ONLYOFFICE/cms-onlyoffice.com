@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "flags",
+  "info": {
+    "singularName": "flag",
+    "pluralName": "flags",
+    "displayName": "flags",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "flag": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string",
+      "required": true,
+      "unique": false
+    }
+  }
+}

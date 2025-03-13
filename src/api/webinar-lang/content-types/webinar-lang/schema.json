@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "webinars_langs",
+  "info": {
+    "singularName": "webinar-lang",
+    "pluralName": "webinars-langs",
+    "displayName": "webinars_lang"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "lang": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

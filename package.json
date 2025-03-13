@@ -1,0 +1,39 @@
+{
+  "name": "www-cms-onlyoffice",
+  "private": true,
+  "version": "1.0.5",
+  "scripts": {
+    "dev": "strapi develop",
+    "start": "strapi start",
+    "build": "strapi build",
+    "strapi": "strapi"
+  },
+  "dependencies": {
+    "@strapi/plugin-cloud": "5.10.3",
+    "@strapi/plugin-users-permissions": "5.10.3",
+    "@strapi/provider-upload-aws-s3": "^4.11.5",
+    "@strapi/strapi": "5.10.3",
+    "jsonwebtoken": "^8.5.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.12.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^6.0.0",
+    "strapi-provider-upload-aws-s3-advanced": "^5.0.0",
+    "styled-components": "^6.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "typescript": "^5"
+  },
+  "strapi": {
+    "uuid": "c29e7844-f728-458e-8f11-2fd74b431882"
+  },
+  "engines": {
+    "node": ">=18.x.x <=22.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}

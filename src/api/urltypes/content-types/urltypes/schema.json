@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "urltype",
+  "info": {
+    "singularName": "urltypes",
+    "pluralName": "urltype",
+    "displayName": "url_types",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "url_type": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    }
+  }
+}
