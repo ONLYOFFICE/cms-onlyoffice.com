@@ -1,5 +1,7 @@
-module.exports = ({ env }) => ({
-  host: env('HOST', '0.0.0.0'),
-  port: env.int('PORT', 1337),
+const { env } = require("../config.json");
+const { host, port} = env;
+module.exports = () => ({
+  host: host,
+  port: port,
 });
 

@@ -1,4 +1,10 @@
-{
+{  
+    "env": {
+        "jwtSecret": "jwtsecret",
+        "apiTokenSalt":"apiTokenSalt",
+        "host": "cms_host",
+        "port": "cms_port"
+    },
     "cmsUrl": "cms_url",
     "awsUrl": "cms_aws_url",
     "jwtSecret": "cms_jwt",
