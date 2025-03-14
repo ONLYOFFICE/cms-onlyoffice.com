@@ -3,8 +3,8 @@
         "jwtSecret": "cms_jwtsecret",
         "adminJwtSecret": "cms_adminJwtSecret",
         "apiTokenSalt":"cms_apiTokenSalt",
-        "host": "cms_host",
-        "port": "cms_port"
+        "host": "0.0.0.0",
+        "port": "3000"
     },
     "cmsUrl": "cms_url",
     "awsUrl": "cms_aws_url",
