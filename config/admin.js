@@ -1,8 +1,11 @@
 const { env } = require("../config.json");
-const { adminJwtSecret } = env;
+const { adminJwtSecret, apiTokenSalt } = env;
 
 module.exports = () => ({
   auth: {
-    secret: 'ADMIN_JWT_SECRET', adminJwtSecret,
+    secret: adminJwtSecret,
   },
+  apiToken: {
+    salt: apiTokenSalt
+  }
 });
