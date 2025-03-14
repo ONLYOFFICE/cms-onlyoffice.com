@@ -1,5 +1,5 @@
 const { aws } = require("../config.json");
-const { access_key_id, access_secret, region, bucket, cms_cdn } = aws;
+const { access_key_id, access_secret, region, bucket, cdn } = aws;
 
 
 module.exports = () => ({
@@ -13,7 +13,7 @@ module.exports = () => ({
         params: {
           Bucket: bucket,
         },
-        baseUrl: cms_cdn,
+        baseUrl: cdn,
       },     
     },    
   },

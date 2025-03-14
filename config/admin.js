@@ -1,8 +1,8 @@
 const { env } = require("../config.json");
-const { jwtSecret } = dbconfig;
+const { adminJwtSecret } = env;
 
-module.exports = ({ env }) => ({
+module.exports = () => ({
   auth: {
-    secret: jwtSecret,
+    secret: 'ADMIN_JWT_SECRET', adminJwtSecret,
   },
 });
