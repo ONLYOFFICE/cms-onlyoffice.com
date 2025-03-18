@@ -1,25 +1,34 @@
 {
-  "name": "www-cms-onlyoffice",
+  "name": "my-strapi-project",
+  "version": "0.1.0",
   "private": true,
-  "version": "1.0.5",
+  "description": "A Strapi application",
   "scripts": {
-    "dev": "strapi develop",
-    "start": "strapi start",
     "build": "strapi build",
-    "strapi": "strapi"
+    "console": "strapi console",
+    "deploy": "strapi deploy",
+    "dev": "strapi develop",
+    "develop": "strapi develop",
+    "seed:example": "node ./scripts/seed.js",
+    "start": "strapi start",
+    "strapi": "strapi",
+    "upgrade": "npx @strapi/upgrade latest",
+    "upgrade:dry": "npx @strapi/upgrade latest --dry"
   },
   "dependencies": {
-    "@strapi/plugin-cloud": "5.10.3",
-    "@strapi/plugin-users-permissions": "5.10.3",
-    "@strapi/provider-upload-aws-s3": "^4.11.5",
-    "@strapi/strapi": "5.10.3",
-    "jsonwebtoken": "^8.5.1",
+    "@strapi/plugin-cloud": "5.11.2",
+    "@strapi/plugin-users-permissions": "5.11.2",
+    "@strapi/provider-upload-aws-s3": "^5.11.2",
+    "@strapi/strapi": "5.11.2",
+    "better-sqlite3": "11.3.0",
+    "fs-extra": "^10.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "mime-types": "^2.1.27",
     "mysql": "^2.18.1",
-    "mysql2": "^3.12.0",
+    "mysql2": "^3.13.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.0.0",
-    "strapi-provider-upload-aws-s3-advanced": "^5.0.0",
     "styled-components": "^6.0.0"
   },
   "devDependencies": {
@@ -28,12 +37,11 @@
     "@types/react-dom": "^18",
     "typescript": "^5"
   },
-  "strapi": {
-    "uuid": "c29e7844-f728-458e-8f11-2fd74b431882"
-  },
   "engines": {
-    "node": ">=18.x.x <=22.x.x",
+    "node": ">=18.0.0 <=22.x.x",
     "npm": ">=6.0.0"
   },
-  "license": "MIT"
+  "strapi": {
+    "uuid": "f7e51e1d-4f66-4bbf-a795-0eda09b190e2"
+  }
 }

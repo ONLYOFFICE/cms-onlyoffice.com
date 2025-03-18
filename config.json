@@ -4,7 +4,8 @@
         "adminJwtSecret": "cms_adminJwtSecret",
         "apiTokenSalt":"cms_apiTokenSalt",
         "host": "0.0.0.0",
-        "port": "3000"
+        "port": "3000",
+        "appKeys": "cms_appKeys"
     },
     "cmsUrl": "cms_url",
     "awsUrl": "cms_aws_url",
