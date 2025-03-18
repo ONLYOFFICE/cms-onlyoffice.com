@@ -4,7 +4,7 @@
   "info": {
     "singularName": "event",
     "pluralName": "events",
-    "displayName": "events",
+    "displayName": "Events",
     "description": ""
   },
   "options": {
@@ -17,117 +17,117 @@
   },
   "attributes": {
     "name": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      },
-      "type": "string",
-      "required": true
+      }
     },
     "start_date": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
       "type": "date",
-      "required": true
-    },
-    "end_date": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "date",
-      "required": true
-    },
-    "start_time": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "time"
-    },
-    "end_time": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "time"
-    },
-    "place": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      },
+      }
+    },
+    "end_date": {
+      "type": "date",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "start_time": {
+      "type": "time",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "end_time": {
+      "type": "time",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "place": {
       "type": "string",
-      "required": true
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "link": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
-          "localized": false
+          "localized": true
         }
-      },
-      "type": "string",
-      "required": true
+      }
     },
     "pastlink": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
-          "localized": false
+          "localized": true
         }
-      },
-      "type": "string",
-      "required": true
+      }
     },
     "image": {
       "type": "media",
-      "multiple": false,
+      "multiple": true,
       "required": false,
       "allowedTypes": [
-        "images"
+        "images",
+        "files",
+        "videos",
+        "audios"
       ],
       "pluginOptions": {
         "i18n": {
-          "localized": false
+          "localized": true
         }
       }
     },
     "image_2X": {
       "type": "media",
-      "multiple": false,
+      "multiple": true,
       "required": false,
       "allowedTypes": [
-        "images"
+        "images",
+        "files",
+        "videos",
+        "audios"
       ],
       "pluginOptions": {
         "i18n": {
-          "localized": false
+          "localized": true
         }
       }
     },
     "description": {
+      "type": "richtext",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      },
-      "type": "richtext",      
-      "required": true
+      }
     },
-    "monthsOnly": {
+    "on_main_page": {
+      "type": "boolean",
+      "default": false,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      },
-      "type": "integer"
+      }
     }
   }
 }
