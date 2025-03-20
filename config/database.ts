@@ -6,6 +6,8 @@ module.exports = () => ({
   connection: {
     client: "mysql",
     connection: {
+      charset: 'utf8mb4',
+      collation: 'utf8mb4_unicode_ci',
       host: host,
       port: port, 
       database: database,
