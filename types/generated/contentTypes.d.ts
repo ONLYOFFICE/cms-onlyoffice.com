@@ -444,9 +444,9 @@ export interface ApiAwardAward extends Struct.CollectionTypeSchema {
     >;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::award.award'>;
-    name: Schema.Attribute.String;
     order: Schema.Attribute.Integer;
     publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
