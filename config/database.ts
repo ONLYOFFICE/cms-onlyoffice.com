@@ -1,6 +1,6 @@
 
 import config from '../config.json';
-const {host, port, database, user, password, ssl}= config.dbconfig; 
+const {host, port, database, user, password}= config.dbconfig; 
 
 module.exports = () => ({
   connection: {
