@@ -1,4 +1,3 @@
-
 import config from '../config.json';
 const {host, port, database, user, password}= config.dbconfig; 
 

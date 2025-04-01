@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "webinars",
+  "collectionName": "partners",
   "info": {
-    "singularName": "webinar",
-    "pluralName": "webinars",
-    "displayName": "Webinar",
+    "singularName": "partner",
+    "pluralName": "partners",
+    "displayName": "Partner",
     "description": ""
   },
   "options": {
@@ -16,56 +16,51 @@
     }
   },
   "attributes": {
-    "title": {
+    "name": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
-          "localized": false
+          "localized": true
         }
       }
     },
-    "date": {
-      "type": "datetime"
+    "country": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "url": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "url_type": {
+      "type": "enumeration",
+      "enum": [
+        "site",
+        "email"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "description": {
-      "type": "richtext"
-    },
-    "language": {
-      "type": "string",
+      "type": "richtext",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       }
     },
-    "watch_link": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "speaker": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "product": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "order": {
-      "type": "integer"
-    },
-    "speaker_image": {
+    "logo": {
       "type": "media",
       "multiple": true,
       "required": false,
@@ -74,7 +69,15 @@
         "files",
         "videos",
         "audios"
-      ]
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "order": {
+      "type": "integer"
     }
   }
 }
