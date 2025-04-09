@@ -39,6 +39,9 @@
           "localized": true
         }
       }
+    },
+    "title": {
+      "type": "string"
     }
   }
 }
