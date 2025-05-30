@@ -4,7 +4,7 @@
   "info": {
     "singularName": "partner",
     "pluralName": "partners",
-    "displayName": "Partner",
+    "displayName": "Partners",
     "description": ""
   },
   "options": {
@@ -18,34 +18,6 @@
   "attributes": {
     "name": {
       "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "country": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "url": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "url_type": {
-      "type": "enumeration",
-      "enum": [
-        "site",
-        "email"
-      ],
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -75,6 +47,44 @@
           "localized": true
         }
       }
+    },
+    "country": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "link": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "level": {
+      "type": "enumeration",
+      "enum": [
+        "No level",
+        "Gold partner",
+        "Silver partner",
+        "Autorized"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "default": "No level"
+    },
+    "url_type": {
+      "type": "enumeration",
+      "enum": [
+        "email",
+        "site"
+      ]
     },
     "order": {
       "type": "integer"
