@@ -373,7 +373,7 @@ export interface ApiAboutAbout extends Struct.CollectionTypeSchema {
   collectionName: 'abouts';
   info: {
     description: '';
-    displayName: 'about';
+    displayName: 'About';
     pluralName: 'abouts';
     singularName: 'about';
   };
@@ -390,14 +390,12 @@ export interface ApiAboutAbout extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     date: Schema.Attribute.Date &
-      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: false;
+          localized: true;
         };
       }>;
-    description: Schema.Attribute.Text &
-      Schema.Attribute.Required &
+    description: Schema.Attribute.RichText &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -405,398 +403,56 @@ export interface ApiAboutAbout extends Struct.CollectionTypeSchema {
       }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::about.about'>;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
-  collectionName: 'authors';
-  info: {
-    description: '';
-    displayName: 'authors';
-    pluralName: 'authors';
-    singularName: 'author';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::author.author'>;
-    name: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    nickname: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiAwardAward extends Struct.CollectionTypeSchema {
-  collectionName: 'awards';
-  info: {
-    description: '';
-    displayName: 'awards';
-    pluralName: 'awards';
-    singularName: 'award';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    article_in_english: Schema.Attribute.Boolean &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }> &
-      Schema.Attribute.DefaultTo<true>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    description: Schema.Attribute.Text &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    image1: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::award.award'>;
-    order_id: Schema.Attribute.Integer &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    url: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-  };
-}
-
-export interface ApiBlognewsBlognews extends Struct.CollectionTypeSchema {
-  collectionName: 'blognew';
-  info: {
-    description: '';
-    displayName: 'blognews';
-    pluralName: 'blognew';
-    singularName: 'blognews';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    blogUrl: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    dateTime: Schema.Attribute.Date &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    img: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    > &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::blognews.blognews'
-    >;
-    name: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    publishedAt: Schema.Attribute.DateTime;
-    shortText: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }> &
-      Schema.Attribute.DefaultTo<' '>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiCountryCountry extends Struct.CollectionTypeSchema {
-  collectionName: 'countries';
-  info: {
-    description: '';
-    displayName: 'countries';
-    pluralName: 'countries';
-    singularName: 'country';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::country.country'
-    >;
-    name: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiCustomersTypesCustomersTypes
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'customers_type';
-  info: {
-    displayName: 'customers_types';
-    pluralName: 'customers-type';
-    singularName: 'customers-types';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::customers-types.customers-types'
-    >;
-    publishedAt: Schema.Attribute.DateTime;
-    type: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiCustomersCustomers extends Struct.CollectionTypeSchema {
-  collectionName: 'customer';
-  info: {
-    description: '';
-    displayName: 'customers';
-    pluralName: 'customer';
-    singularName: 'customers';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    img: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    > &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::customers.customers'
-    >;
     order: Schema.Attribute.Integer &
-      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
     publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    type: Schema.Attribute.Relation<
-      'oneToOne',
-      'api::customers-types.customers-types'
-    >;
+    title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    url: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
+  };
+}
+
+export interface ApiCustomerCustomer extends Struct.CollectionTypeSchema {
+  collectionName: 'customers';
+  info: {
+    displayName: 'Customers';
+    pluralName: 'customers';
+    singularName: 'customer';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    img: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::customer.customer'
+    >;
+    order: Schema.Attribute.Integer;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    url: Schema.Attribute.String;
     url_pdf: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
-    > &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-  };
-}
-
-export interface ApiDepartmentDepartment extends Struct.CollectionTypeSchema {
-  collectionName: 'departments';
-  info: {
-    description: '';
-    displayName: 'departments';
-    pluralName: 'departments';
-    singularName: 'department';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    department_id: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    department_name: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::department.department'
     >;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
   };
 }
 
@@ -804,7 +460,7 @@ export interface ApiEventEvent extends Struct.CollectionTypeSchema {
   collectionName: 'events';
   info: {
     description: '';
-    displayName: 'events';
+    displayName: 'Events';
     pluralName: 'events';
     singularName: 'event';
   };
@@ -821,68 +477,69 @@ export interface ApiEventEvent extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.RichText &
-      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
     end_date: Schema.Attribute.Date &
-      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: false;
+          localized: true;
         };
       }>;
     end_time: Schema.Attribute.Time &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: false;
+          localized: true;
         };
       }>;
-    image: Schema.Attribute.Media<'images'> &
+    image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: false;
+          localized: true;
         };
       }>;
-    image_2X: Schema.Attribute.Media<'images'> &
+    image_2X: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: false;
+          localized: true;
         };
       }>;
     link: Schema.Attribute.String &
-      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: false;
+          localized: true;
         };
       }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::event.event'>;
-    monthsOnly: Schema.Attribute.Integer &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     name: Schema.Attribute.String &
-      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    pastlink: Schema.Attribute.String &
-      Schema.Attribute.Required &
+    on_main_page: Schema.Attribute.Boolean &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: false;
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<false>;
+    pastlink: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
         };
       }>;
     place: Schema.Attribute.String &
-      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -890,130 +547,15 @@ export interface ApiEventEvent extends Struct.CollectionTypeSchema {
       }>;
     publishedAt: Schema.Attribute.DateTime;
     start_date: Schema.Attribute.Date &
-      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: false;
+          localized: true;
         };
       }>;
     start_time: Schema.Attribute.Time &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: false;
-        };
-      }>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiFlagFlag extends Struct.CollectionTypeSchema {
-  collectionName: 'flags';
-  info: {
-    description: '';
-    displayName: 'flags';
-    pluralName: 'flags';
-    singularName: 'flag';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    flag: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::flag.flag'>;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiMaineventMainevent extends Struct.CollectionTypeSchema {
-  collectionName: 'mainevents';
-  info: {
-    description: '';
-    displayName: 'main_events';
-    pluralName: 'mainevents';
-    singularName: 'mainevent';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    endDate: Schema.Attribute.Date &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    href: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    img: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::mainevent.mainevent'
-    >;
-    place: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
           localized: true;
-        };
-      }>;
-    publishedAt: Schema.Attribute.DateTime;
-    startDate: Schema.Attribute.Date &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    target: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }> &
-      Schema.Attribute.DefaultTo<'_blank'>;
-    title: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
         };
       }>;
     updatedAt: Schema.Attribute.DateTime;
@@ -1026,7 +568,7 @@ export interface ApiPartnerPartner extends Struct.CollectionTypeSchema {
   collectionName: 'partners';
   info: {
     description: '';
-    displayName: 'partners';
+    displayName: 'Partners';
     pluralName: 'partners';
     singularName: 'partner';
   };
@@ -1039,454 +581,62 @@ export interface ApiPartnerPartner extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
-    autorizedsponsor: Schema.Attribute.Boolean &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }> &
-      Schema.Attribute.DefaultTo<false>;
-    country: Schema.Attribute.Relation<'oneToOne', 'api::country.country'>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    description: Schema.Attribute.RichText &
-      Schema.Attribute.Required &
+    country: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    goldsponsor: Schema.Attribute.Boolean &
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.RichText &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: false;
+          localized: true;
+        };
+      }>;
+    level: Schema.Attribute.Enumeration<
+      ['No level', 'Gold partner', 'Silver partner', 'Autorized']
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
         };
       }> &
-      Schema.Attribute.DefaultTo<false>;
+      Schema.Attribute.DefaultTo<'No level'>;
+    link: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::partner.partner'
     >;
-    logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    name: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    publishedAt: Schema.Attribute.DateTime;
-    silversponsor: Schema.Attribute.Boolean &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }> &
-      Schema.Attribute.DefaultTo<false>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    url: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    urltype: Schema.Attribute.Relation<'oneToOne', 'api::urltypes.urltypes'>;
-  };
-}
-
-export interface ApiProductProduct extends Struct.CollectionTypeSchema {
-  collectionName: 'products';
-  info: {
-    displayName: 'products';
-    pluralName: 'products';
-    singularName: 'product';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::product.product'
-    >;
-    name: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiUrltypesUrltypes extends Struct.CollectionTypeSchema {
-  collectionName: 'urltype';
-  info: {
-    description: '';
-    displayName: 'url_types';
-    pluralName: 'urltype';
-    singularName: 'urltypes';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::urltypes.urltypes'
-    >;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    url_type: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-  };
-}
-
-export interface ApiVacancyCountryVacancyCountry
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'vacancy_countries';
-  info: {
-    description: '';
-    displayName: 'vacancy_countries';
-    pluralName: 'vacancy-countries';
-    singularName: 'vacancy-country';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    country_id: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    country_name: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    flag: Schema.Attribute.Relation<'oneToOne', 'api::flag.flag'>;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::vacancy-country.vacancy-country'
-    >;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiVacancyListBenefitVacancyListBenefit
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'vacancy_list_benefits';
-  info: {
-    description: '';
-    displayName: 'vacancy_list_benefits';
-    pluralName: 'vacancy-list-benefits';
-    singularName: 'vacancy-list-benefit';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    benefit: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.Unique &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::vacancy-list-benefit.vacancy-list-benefit'
-    >;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiVacancyListRequirementVacancyListRequirement
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'vacancy_list_requirements';
-  info: {
-    description: '';
-    displayName: 'vacancy_list_requirements';
-    pluralName: 'vacancy-list-requirements';
-    singularName: 'vacancy-list-requirement';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::vacancy-list-requirement.vacancy-list-requirement'
-    >;
-    publishedAt: Schema.Attribute.DateTime;
-    requirement: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.Unique &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiVacancyListSkillVacancyListSkill
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'vacancy_list_skills';
-  info: {
-    description: '';
-    displayName: 'vacancy_list_skills';
-    pluralName: 'vacancy-list-skills';
-    singularName: 'vacancy-list-skill';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::vacancy-list-skill.vacancy-list-skill'
-    >;
-    publishedAt: Schema.Attribute.DateTime;
-    skill: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.Unique &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiVacancyPositionVacancyPosition
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'vacancy_positions';
-  info: {
-    description: '';
-    displayName: 'vacancy_position';
-    pluralName: 'vacancy-positions';
-    singularName: 'vacancy-position';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::vacancy-position.vacancy-position'
-    >;
-    position: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiVacancyVacancy extends Struct.CollectionTypeSchema {
-  collectionName: 'vacancies';
-  info: {
-    description: '';
-    displayName: 'vacancies';
-    pluralName: 'vacancies';
-    singularName: 'vacancy';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    department: Schema.Attribute.Relation<
-      'oneToOne',
-      'api::department.department'
-    >;
-    description: Schema.Attribute.Text &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    language: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    list_benefits: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::vacancy-list-benefit.vacancy-list-benefit'
-    >;
-    list_requirements: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::vacancy-list-requirement.vacancy-list-requirement'
-    >;
-    list_skills: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::vacancy-list-skill.vacancy-list-skill'
-    >;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::vacancy.vacancy'
-    >;
-    publishedAt: Schema.Attribute.DateTime;
-    time: Schema.Attribute.Relation<'oneToOne', 'api::work-time.work-time'>;
-    title: Schema.Attribute.Relation<
-      'oneToOne',
-      'api::vacancy-position.vacancy-position'
-    >;
-    type: Schema.Attribute.Relation<'oneToOne', 'api::work-type.work-type'>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    vacancy_country: Schema.Attribute.Relation<
-      'oneToOne',
-      'api::vacancy-country.vacancy-country'
-    >;
-  };
-}
-
-export interface ApiWebinarLangWebinarLang extends Struct.CollectionTypeSchema {
-  collectionName: 'webinars_langs';
-  info: {
-    displayName: 'webinars_lang';
-    pluralName: 'webinars-langs';
-    singularName: 'webinar-lang';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    lang: Schema.Attribute.String & Schema.Attribute.Required;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::webinar-lang.webinar-lang'
+    logo: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
     > &
-      Schema.Attribute.Private;
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    name: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    order: Schema.Attribute.Integer;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    url_type: Schema.Attribute.Enumeration<['email', 'site']>;
   };
 }
 
@@ -1494,7 +644,7 @@ export interface ApiWebinarWebinar extends Struct.CollectionTypeSchema {
   collectionName: 'webinars';
   info: {
     description: '';
-    displayName: 'webinars';
+    displayName: 'Webinar';
     pluralName: 'webinars';
     singularName: 'webinar';
   };
@@ -1507,28 +657,25 @@ export interface ApiWebinarWebinar extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
-    authors: Schema.Attribute.Relation<'oneToMany', 'api::author.author'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    date: Schema.Attribute.Date &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    description: Schema.Attribute.Text &
-      Schema.Attribute.Required &
+    date: Schema.Attribute.DateTime &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    link: Schema.Attribute.String &
-      Schema.Attribute.Required &
+    description: Schema.Attribute.RichText &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: false;
+          localized: true;
+        };
+      }>;
+    language: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
         };
       }>;
     locale: Schema.Attribute.String;
@@ -1536,10 +683,30 @@ export interface ApiWebinarWebinar extends Struct.CollectionTypeSchema {
       'oneToMany',
       'api::webinar.webinar'
     >;
-    products: Schema.Attribute.Relation<'oneToMany', 'api::product.product'>;
+    order: Schema.Attribute.Integer;
+    product: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     publishedAt: Schema.Attribute.DateTime;
+    speaker: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    speaker_image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     title: Schema.Attribute.String &
-      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1548,159 +715,10 @@ export interface ApiWebinarWebinar extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    webinars_lang: Schema.Attribute.Relation<
-      'oneToOne',
-      'api::webinar-lang.webinar-lang'
-    >;
-  };
-}
-
-export interface ApiWorkTimeWorkTime extends Struct.CollectionTypeSchema {
-  collectionName: 'work_times';
-  info: {
-    description: '';
-    displayName: 'work_time';
-    pluralName: 'work-times';
-    singularName: 'work-time';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::work-time.work-time'
-    >;
-    publishedAt: Schema.Attribute.DateTime;
-    time: Schema.Attribute.String &
-      Schema.Attribute.Required &
+    watch_link: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
-        };
-      }>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiWorkTypeWorkType extends Struct.CollectionTypeSchema {
-  collectionName: 'work_types';
-  info: {
-    description: '';
-    displayName: 'work_type';
-    pluralName: 'work-types';
-    singularName: 'work-type';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::work-type.work-type'
-    >;
-    publishedAt: Schema.Attribute.DateTime;
-    type: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiYoutubeYoutube extends Struct.CollectionTypeSchema {
-  collectionName: 'youtubes';
-  info: {
-    description: '';
-    displayName: 'youtube';
-    pluralName: 'youtubes';
-    singularName: 'youtube';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    bgImgURL: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    dateTime: Schema.Attribute.Date &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::youtube.youtube'
-    >;
-    nameVideo: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    publishedAt: Schema.Attribute.DateTime;
-    timeVideo: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    typeVideo: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }> &
-      Schema.Attribute.DefaultTo<'Webinar'>;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    videoUrl: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
         };
       }>;
   };
@@ -2216,30 +1234,10 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::about.about': ApiAboutAbout;
-      'api::author.author': ApiAuthorAuthor;
-      'api::award.award': ApiAwardAward;
-      'api::blognews.blognews': ApiBlognewsBlognews;
-      'api::country.country': ApiCountryCountry;
-      'api::customers-types.customers-types': ApiCustomersTypesCustomersTypes;
-      'api::customers.customers': ApiCustomersCustomers;
-      'api::department.department': ApiDepartmentDepartment;
+      'api::customer.customer': ApiCustomerCustomer;
       'api::event.event': ApiEventEvent;
-      'api::flag.flag': ApiFlagFlag;
-      'api::mainevent.mainevent': ApiMaineventMainevent;
       'api::partner.partner': ApiPartnerPartner;
-      'api::product.product': ApiProductProduct;
-      'api::urltypes.urltypes': ApiUrltypesUrltypes;
-      'api::vacancy-country.vacancy-country': ApiVacancyCountryVacancyCountry;
-      'api::vacancy-list-benefit.vacancy-list-benefit': ApiVacancyListBenefitVacancyListBenefit;
-      'api::vacancy-list-requirement.vacancy-list-requirement': ApiVacancyListRequirementVacancyListRequirement;
-      'api::vacancy-list-skill.vacancy-list-skill': ApiVacancyListSkillVacancyListSkill;
-      'api::vacancy-position.vacancy-position': ApiVacancyPositionVacancyPosition;
-      'api::vacancy.vacancy': ApiVacancyVacancy;
-      'api::webinar-lang.webinar-lang': ApiWebinarLangWebinarLang;
       'api::webinar.webinar': ApiWebinarWebinar;
-      'api::work-time.work-time': ApiWorkTimeWorkTime;
-      'api::work-type.work-type': ApiWorkTypeWorkType;
-      'api::youtube.youtube': ApiYoutubeYoutube;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
