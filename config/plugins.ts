@@ -7,8 +7,13 @@ module.exports = ({ env }) => ({
       provider: 'aws-s3',
       providerOptions: {
         baseUrl: cdn,
-        rootPath: env('AWS_ROOT_PATH', ''),
+        rootPath: env('AWS_ROOT_PATH', 'images'),
         s3Options: {
+          requestHandler: new (require('@smithy/node-http-handler').NodeHttpHandler)({
+            requestTimeout: env.int('AWS_S3_REQUEST_TIMEOUT', 300000),
+            connectionTimeout: env.int('AWS_S3_CONNECTION_TIMEOUT', 10000),
+          }),
+          maxAttempts: env.int('AWS_S3_MAX_ATTEMPTS', 3),
           credentials: {
             accessKeyId: access_key_id,
             secretAccessKey: access_secret,
