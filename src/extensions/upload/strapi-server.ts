@@ -43,7 +43,7 @@ export default (plugin: any) => {
       'api::customer.customer': 'customers',
       'api::event.event': 'events',
       'api::partner.partner': 'partners',
-      'api::webinar.webinar': 'webinar',
+      'api::webinar.webinar': 'webinars',
     };
 
     if (!ref) {
