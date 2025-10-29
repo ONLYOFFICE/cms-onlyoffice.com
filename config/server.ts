@@ -7,4 +7,9 @@ export default () => ({
   app: {
     keys: appKeys.split(','),
   },
+  webhooks: {
+    defaultHeaders: {
+      Authorization: `Bearer ${process.env.WEBHOOK_SECRET}`,
+    },
+  },
 });
