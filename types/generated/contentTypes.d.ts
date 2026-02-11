@@ -615,18 +615,8 @@ export interface ApiPartnerPartner extends Struct.CollectionTypeSchema {
     level: Schema.Attribute.Enumeration<
       ['No level', 'Gold partner', 'Silver partner', 'Autorized']
     > &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }> &
       Schema.Attribute.DefaultTo<'No level'>;
-    link: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
+    link: Schema.Attribute.String;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
