@@ -65,20 +65,10 @@
       }
     },
     "link": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      "type": "string"
     },
     "pastlink": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      "type": "string"
     },
     "image": {
       "type": "media",
@@ -122,12 +112,7 @@
     },
     "on_main_page": {
       "type": "boolean",
-      "default": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      "default": false
     }
   }
 }

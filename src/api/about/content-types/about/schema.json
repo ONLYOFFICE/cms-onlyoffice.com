@@ -33,12 +33,7 @@
       }
     },
     "order": {
-      "type": "integer",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      "type": "integer"
     },
     "title": {
       "type": "string"

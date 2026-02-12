@@ -57,12 +57,7 @@
       }
     },
     "link": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      "type": "string"
     },
     "level": {
       "type": "enumeration",
@@ -72,11 +67,6 @@
         "Silver partner",
         "Autorized"
       ],
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
       "default": "No level"
     },
     "url_type": {
